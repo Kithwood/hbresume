@@ -1,0 +1,30 @@
+.dark {
+	padding-top: 70px;
+	background-color:black;
+}
+
+.half {
+	width:66% !important;
+}
+
+.stormy {
+	background-color:#3b3b3b;
+	border:1px solid #878787;
+	display:inline;
+	width:100%;
+}
+
+.intro{
+	font-weight:bold;
+	font-size:1.3em;
+	color:#fff;
+}
+
+.prime{
+	background-color:#4ca5d0;
+	color:#fff;
+	border:0px;
+	min-width:48px;
+	min-height:48px;
+}
+
