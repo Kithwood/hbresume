@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php include './scripts/ResumeCV.php';
+	  include './scripts/Application.php';
+		$Resume = new ResumeCV();
+		$Application = new Application();
+	?>
   <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Harold L. Blankenship's Resume</title>
+    <title><?php $Application->getTitle(); ?></title>
 
 	<link rel="stylesheet" type="text/css" href="resume.css">
 
@@ -17,11 +22,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	
-	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>	
   </head>
   <body class="dark">
+    
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container half">
 			<div class="navbar-header">
@@ -31,7 +35,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Project Name</a>
+				<a class="navbar-brand" href="#"><?php $Resume->getFullName(); ?></a>
 			</div>
  			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
