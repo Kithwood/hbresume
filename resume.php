@@ -22,7 +22,17 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		$(function() {
+			
+		});
+
+		function showHidePara()
+		{
+			$("#para_intro").toggle("slide");
+		}
+	</script>	
   </head>
   <body class="dark">
     
@@ -47,16 +57,25 @@
 		</nav>
 	<div class="container half">						
 		<div  class="row">				
-			<div class="col-md-2"></div>
-			<div class="col-md-8">
-				<button type="button" class="prime"><span class="glyphicon glyphicon-user"></span></button>
-				<div class="stormy">
+			<div style="display:inline;float:left;">
+			<button class="prime" type="button" onclick="showHidePara();">
+				<span class="glyphicon glyphicon-user"></span>
+			</button>
+			</div>
+			<div class="col-md-8 stormy">				
+				<div>
 					<label class="intro text-uppercase">Harold L. Blankenship</label><br/>
 					<label style="color:#fff;">Software Development Professional</label>
-				</div>
-				<button type="button" class="prime"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
+					<div style="margin-left:50px;">
+						<p id="para_intro" style="display:none;color:#fff;">lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					</div>
+				</div>				
 			</div>			
-			<div class="col-md-2"></div>
+			<div style="display:inline;">
+			<button class="prime" type="button">
+				<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+			</button>
+			</div>
 		</div>
 	</div>
   </body>
