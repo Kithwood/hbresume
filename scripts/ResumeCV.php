@@ -1,16 +1,20 @@
 <?php
 class ResumeCV
 {
-    public $FullName = 'Harold L. Blankenship';
-
+    
     function getFullName()
     {
         echo 'Harold L. Blankenship';
     }
     
+    function getTitle()
+    {
+        echo 'Software Development Professional';
+    }
+
     function getSummary()
     {
-        $str = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " 
+        $str = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor " 
             . "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis " 
             . "nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. " 
             . "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu " 
@@ -18,6 +22,21 @@ class ResumeCV
             . "culpa qui officia deserunt mollit anim id est laborum.";
         
         echo $str;
+    }
+
+    function getLocation()
+    {
+        echo 'New Braunfels, TX 78132, US';
+    }
+
+    function getEmail()
+    {
+        echo 'kithwood@gmail.com';
+    }
+
+    function getPhone()
+    {
+        echo '+1-512-644-3053';
     }
 }
 ?>

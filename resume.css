@@ -1,31 +1,53 @@
 .dark {
 	padding-top: 70px;
 	background-color:black;
+	color:#fff;
 }
 
 .half {
 	width:66% !important;
+	margin:auto;
+	display:table;
 }
 
 .stormy {
-	background-color:#3b3b3b;
-	border:1px solid #878787;
+	background-color: #2b2b2b;
+	border:0px solid #878787;
 	display:inline;
 }
 
 .intro{
 	font-weight:bold;
-	font-size:1.3em;
+	font-size:1.5em;
 	color:#fff;
+	text-transform:uppercase;
+}
+
+.subblue{
+	color:#4ca5d0;
 }
 
 .prime{
-	background-color:#4ca5d0;
+	background-color:#4ca5dd;
 	color:#fff;
 	border:0px;
 	min-width:48px;
 	min-height:48px;
 }
+
+.navarrow{
+	background-color:#2b2b2b;
+	color:#4d4d4d;
+	border:2px solid #4d4d4d;
+	min-width:32px;
+	min-height:32px;
+}
+
+.navarrow:hover{
+	background-color:#4d4d4d;
+	color:#2b2b2b;
+}
+
 
 .primewide{
 	background-color:#4ca5d0;
@@ -34,4 +56,23 @@
 	font-size:large;
 	min-width:100px;
 	min-height:48px;
+}
+
+.infoTextLabel{
+	font-size:smaller;
+	font-weight:bold;
+	text-align:right;
+	color:#fff;
+}
+
+.infoText {
+	font-size:smaller;
+	text-align:left;
+	color:#acacac;
+	padding-left:8px;
+}
+
+.paraText {	
+	text-align:left;
+	color:#acacac;	
 }
