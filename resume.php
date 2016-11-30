@@ -25,14 +25,12 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script type="text/javascript">
 		$(function() {
-			
+		
+			$("#btnProfileIcon").click(function() {
+				$("#btnProfile").toggle('slide','left',500);
+				$("#para_intro").toggle('slide','down',500);
+			});
 		});
-
-		function showHidePara()
-		{
-			$("#para_intro").toggle("slow");
-			$("#btnProfile").toggle('slide','left',500);
-		}
 	</script>	
   </head>
   <body class="dark">
@@ -59,7 +57,7 @@
 	<div class="container half">						
 		<div  class="row">				
 			<div style="display:inline;float:left;">
-			<button class="prime" type="button" onclick="showHidePara();">
+			<button id="btnProfileIcon" class="prime" type="button">
 				<span class="glyphicon glyphicon-user"></span>
 			</button>
 			</div>
