@@ -27,9 +27,10 @@
 	min-height:48px;
 }
 
-.primediv{
+.primewide{
 	background-color:#4ca5d0;
 	color:#fff;
-	width:100px;
+	border:0px;
+	min-width:100px;
 	min-height:48px;
 }
