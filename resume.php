@@ -64,7 +64,7 @@
 			</div>
 			<div class="col-md-8 stormy">				
 				<div>
-					<span class="primediv"><label class="intro">PROFILE</label></span>
+					<button class="primediv"><label class="intro">PROFILE</label></button>
 					<label class="intro text-uppercase"><?php $Resume->getFullName(); ?></label><br/>
 					<label style="color:#fff;">Software Development Professional</label>
 					<div style="margin-left:50px;">
