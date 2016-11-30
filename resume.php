@@ -64,10 +64,10 @@
 			</div>
 			<div class="col-md-8 stormy">				
 				<div>
-					<label class="intro text-uppercase">Harold L. Blankenship</label><br/>
+					<label class="intro text-uppercase"><?php $Resume->getFullName(); ?></label><br/>
 					<label style="color:#fff;">Software Development Professional</label>
 					<div style="margin-left:50px;">
-						<p id="para_intro" style="display:none;color:#fff;">lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p id="para_intro" style="display:none;color:#fff;"><?php $Resume->getSummary(); ?></p>
 					</div>
 				</div>				
 			</div>			
