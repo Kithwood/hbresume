@@ -31,7 +31,7 @@
 		function showHidePara()
 		{
 			$("#para_intro").toggle("slide");
-			$("#btnProfile").toggle("slide-right");
+			$("#btnProfile").toggle("slideRight");
 		}
 	</script>	
   </head>
