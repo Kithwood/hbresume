@@ -31,7 +31,7 @@
 		function showHidePara()
 		{
 			$("#para_intro").toggle("slow");
-			$("#btnProfile").toggle("slow");
+			$("#btnProfile").toggle('slide','left',500);
 		}
 	</script>	
   </head>
