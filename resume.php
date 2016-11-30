@@ -30,8 +30,8 @@
 
 		function showHidePara()
 		{
-			$("#para_intro").toggle("slide");
-			$("#btnProfile").toggle("slideRight");
+			$("#para_intro").toggle();
+			$("#btnProfile").toggle();
 		}
 	</script>	
   </head>
@@ -64,7 +64,7 @@
 			</button>
 			</div>
 			<div class="col-md-8 stormy">
-				<span id="btnProfile" class="primewide" style="display:none;margin-left:-16px;">PROFILE</span>				
+				<label style="min-height:48px;">.</label><button type="button" id="btnProfile" class="primewide" style="display:none;margin-left:-16px;">PROFILE</button>				
 				<div>					
 					<label class="intro text-uppercase"><?php $Resume->getFullName(); ?></label><br/>
 					<label style="color:#fff;">Software Development Professional</label>
