@@ -28,7 +28,7 @@
 		
 			$("#btnProfileIcon").click(function() {
 				$("#btnProfile").toggle('slide','left',500);
-				$("#para_intro").toggle('slide','down',500);
+				//$("#para_intro").toggle('slide','down',500);
 			});
 		});
 	</script>	
