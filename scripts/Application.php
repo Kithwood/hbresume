@@ -3,7 +3,7 @@ class Application
 {
     public function getTitle()
     {
-        echo 'Harold L. Blankenship\'s Resume';
+        return 'Harold L. Blankenship\'s Resume';
     }
 }
 ?>

@@ -1,42 +1,56 @@
 <?php
 class ResumeCV
 {
+    protected $employmentInfos = null;    
+
+    function __construct()
+    {        
+    }
+
+    public function getFullName()
+    {
+        $context = new ResumeDataContext();
+        return $context->getResumeName();        
+    }
     
-    function getFullName()
+    public function getTitle()
     {
-        echo 'Harold L. Blankenship';
-    }
-    
-    function getTitle()
-    {
-        echo 'Software Development Professional';
+        $context = new ResumeDataContext();
+        return $context->getTitle();
     }
 
-    function getSummary()
-    {
-        $str = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor " 
-            . "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis " 
-            . "nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. " 
-            . "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu " 
-            . "fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in " 
-            . "culpa qui officia deserunt mollit anim id est laborum.";
-        
-        echo $str;
+    public function getSummary()
+    {        
+        $context = new ResumeDataContext();
+        return $context->getSummary();
     }
 
-    function getLocation()
+    public function getLocation()
     {
-        echo 'New Braunfels, TX 78132, US';
+        $context = new ResumeDataContext();
+        return $context->getLocation();
     }
 
-    function getEmail()
+    public function getEmail()
     {
-        echo 'kithwood@gmail.com';
+        $context = new ResumeDataContext();
+        return $context->getEmail();
     }
 
-    function getPhone()
+    public function getPhone()
     {
-        echo '+1-512-644-3053';
+        $context = new ResumeDataContext();
+        return $context->getPhone();
+    }
+
+    public function getEmployment()
+    {    
+        if($this->employmentInfos == null)
+        {
+            $context = new ResumeDataContext();
+            $this->employmentInfos = $context->getEmploymentInfo();
+        }
+        return $this->employmentInfos;
     }
 }
 ?>

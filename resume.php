@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include './scripts/ResumeCV.php';
+<?php include './scripts/ResumeDataContext.php'; 
+	  include './scripts/ResumeCV.php';
 	  include './scripts/Application.php';
+	  include './scripts/EmploymentInfo.php';
+	  include './scripts/EmploymentInfoView.php';	  
 		$Resume = new ResumeCV();
 		$Application = new Application();
 	?>
@@ -9,7 +12,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php $Application->getTitle(); ?></title>
+    <title><?php echo $Application->getTitle(); ?></title>
 
 	<link rel="stylesheet" type="text/css" href="resume.css">
 
@@ -30,7 +33,7 @@
 		$(function() {
 		
 			$(".profile").click(function() {
-				$("#btnProfile").toggle('slow', function() {
+				$("#btnProfile").toggle('fast', function() {
 					
 					if(!$("#btnProfile").is(":visible")){
 						$("#divPicIntro").css({"margin-top":"-16px"});	
@@ -46,6 +49,25 @@
 					$("#btnProfileDownSpan").toggleClass("glyphicon-chevron-up", false);					
 				}
 				
+			});
+
+			$(".resume").click(function(){
+					$("#btnResumeDark").css({'display':'none'});				
+					$("#btnResume").toggle('fast', function() {
+						if(!$("#btnResume").is(":visible")){
+								$("#btnResumeDark").css({'display':'inline'});
+							}					
+						});
+
+					if($("#btnResumeDownSpan").hasClass("glyphicon-chevron-down")){
+						$("#btnResumeDownSpan").toggleClass("glyphicon-chevron-down", false);
+						$("#btnResumeDownSpan").toggleClass("glyphicon-chevron-up", true);
+						$("#divPicIntro").css({"margin-top":"16px"});
+					}else{
+						$("#btnResumeDownSpan").toggleClass("glyphicon-chevron-down", true);
+						$("#btnResumeDownSpan").toggleClass("glyphicon-chevron-up", false);					
+					}
+					$("#divEmployment").slideToggle();
 			});
 		});
 	</script>	
@@ -72,13 +94,10 @@
 			</div>
 		</nav>-->
 	<div class="container">						
-		<div>
-			<div style="display:inline;float:left;">
-				
-			</div>
+		<section id="profileSection">
 			<div class="col-md-8 col-md-offset-2 stormy">
 					<button id="btnProfileIcon" class="prime profile" style="margin-left:-64px;" type="button">
-						<span class="glyphicon glyphicon-user" style="min-width:36px;"></span><span id="btnProfile" style="margin-left:48px;margin-right:24px;display:none;">PROFILE</span>
+						<span class="glyphicon glyphicon-user double" style="min-width:36px;"></span><span id="btnProfile" class="intro" style="margin-left:24px;margin-right:24px;display:none;">PROFILE</span>
 					</button>					
 					<!--<button type="button" id="btnProfile" class="primewide profile" style="display:none;margin-left:-2px;">PROFILE</button>-->
 				<div style="float:right;margin-top:8px;">
@@ -92,22 +111,22 @@
 							<img src="./images/IMG_3188.JPG" alt="Profile Image" width="85">
 						</div>
 						<div style="display:table-cell;vertical-align:top;color:#fff;padding-left:32px;">
-							<span class="intro"><?php $Resume->getFullName(); ?></span><br/>
-							<span class="subblue"><?php $Resume->getTitle(); ?></span>
+							<span class="intro"><?php echo $Resume->getFullName(); ?></span><br/>
+							<span class="subblue"><?php echo $Resume->getTitle(); ?></span>
 						</div>
 						<div style="display:table-cell;vertical-align:top;">
 							<table style="margin-left:32px;">
 								<tr>
 									<td class="infoTextLabel">Location:</td>
-									<td class="infoText"><?php $Resume->getLocation(); ?></td>
+									<td class="infoText"><?php echo $Resume->getLocation(); ?></td>
 								</tr>
 								<tr>
 									<td class="infoTextLabel">Phone:</td>
-									<td class="infoText"><?php $Resume->getPhone(); ?></td>
+									<td class="infoText"><?php echo $Resume->getPhone(); ?></td>
 								</tr>
 								<tr>
 									<td class="infoTextLabel">Email:</td>
-									<td class="infoText"><a class="subblue" href="mailto:<?php $Resume->getEmail(); ?>"><?php $Resume->getEmail(); ?></a></td>
+									<td class="infoText"><a class="subblue" href="mailto:<?php $Resume->getEmail(); ?>"><?php echo $Resume->getEmail(); ?></a></td>
 								</tr>
 							</table>
 						</div>
@@ -117,19 +136,52 @@
 					<div style="display:table-row;">
 						<div style="width:100%;">
 							<div id="para_intro" style="margin-left:50px;display:none;margin-bottom:24px;padding-right:50px;">
-								<p class="paraText"><?php $Resume->getSummary(); ?></p>
+								<p class="paraText"><?php echo $Resume->getSummary(); ?></p>
 							</div>
 						</div>
 					</div>
 				</div>												
 			</div>			
-			<div style="display:inline;">
-			<button class="prime" type="button">
-				<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-			</button>
-			</div>
-		</div>
-	</div>
+			<!--<div style="display:inline;">
+				<button class="prime" type="button">
+					<span class="glyphicon glyphicon-pencil double" aria-hidden="true"></span>
+				</button>
+			</div>		-->
+		</section><!--profileSection-->	
+		<section id="resumeSection">
+		<div style="display:inline;height:48px;width:48px;background-color:green;">.</div>	
+			<div class="col-md-8 col-md-offset-2 stormy stormy-top-line">
+				<button id="btnResumeIcon" class="prime resume" style="margin-left:-64px;" type="button">
+					<span class="glyphicon glyphicon-list double" style="min-width:36px;"></span>
+					<button id="btnResumeDark" class="nonprime intro intro-dark" style="padding-left:16px;padding-right:16px;vertical-align:middle;text-align:center;margin-top:-1px;padding-right:24px;">EMPLOYMENT</button>
+					<button id="btnResume" class="prime intro" style="display:none;padding-left:20px;padding-right:16px;vertical-align:middle;text-align:center;margin-top:-1px;margin-left:-4px;padding-right:28px;">EMPLOYMENT</button>
+				</button>														
+				<div style="float:right;margin-top:8px;">
+					<button type="button" id="btnResumeDown" class="navarrow resume">
+						<span id="btnResumeDownSpan" class="glyphicon glyphicon-chevron-down"></span>
+					</button>
+				</div>
+				<div id="divEmployment" class="info" style="margin-left:50px;display:none;margin-bottom:24px;padding-right:50px;margin-top:24px">					
+					<?php							
+						$var = $Resume->getEmployment();
+						if(is_null($var) || empty($var))
+							echo '<p>No Employment History</p>';
+						
+						foreach($var as $empInfo)
+						{
+							$empView = new EmploymentInfoView();
+							$empView->employmentInfo = $empInfo;
+							if(is_null($empView))
+								echo 'Null EmpView';
+							
+							echo $empView->getHTML();
+							
+						}
+					?>
+				</div>																			
+			</div>							
+		</section><!--resumeSection-->
+	</div>	
   </body>
 </html>
 
