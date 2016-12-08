@@ -17,6 +17,8 @@ class ResumeDataContext
     const EMPINFO_SUMMARY = 'Summary';
     const EMPINFO_EMPLOYER = 'Employer';
     const EMPINFO_EMPLOYMENTRANGE = 'Range';
+    const EMPINFO_ID = 'Id';
+    const ACCOMPLISHMENT_DESCRIPTION = 'Description';
 
     public function getResumeName()
     {
@@ -186,12 +188,15 @@ class ResumeDataContext
                 $eiSummary = $resume[ResumeDataContext::EMPINFO_SUMMARY];
                 $eiEmployer = $resume[ResumeDataContext::EMPINFO_EMPLOYER];
                 $eiRange = $resume[ResumeDataContext::EMPINFO_EMPLOYMENTRANGE];
+                $eiInfoId = $resume[ResumeDataContext::EMPINFO_ID];
+
                 $empInfo = new EmploymentInfo();
                 $empInfo->Title = $eiTitle;
                 $empInfo->Summary = $eiSummary;
                 $empInfo->Employer = $eiEmployer;
                 $empInfo->Range = $eiRange;
-                
+                $empInfo->Id = $eiInfoId;
+
                 $retStr[] = $empInfo;
             }                                                
         }
@@ -199,6 +204,37 @@ class ResumeDataContext
         {
             $err = $e->getMessage();
             echo "Failed to retrieve employment info: $err";
+            die();
+        }
+        $dbh=null;
+        $sth=null;
+
+        return $retStr;
+    }
+
+    public function getAccomplishments($EmploymentInfoId)
+    {
+        $retStr = array();
+
+        try
+        {
+            $dbh = new PDO(getenv(ResumeDataContext::DATACONNECTION), getenv(ResumeDataContext::DATAUSER), getenv(ResumeDataContext::DATAPASS));
+            $resumeID = ResumeDataContext::RESUME_ID;
+            $sql = "SELECT * FROM accomplishments WHERE EmploymentInfoId=?";
+            $sth = $dbh->prepare($sql);            
+            $sth->execute([$EmploymentInfoId]);     
+
+            while($resume = $sth->fetch())
+            {         
+                $eiDescription = $resume[ResumeDataContext::ACCOMPLISHMENT_DESCRIPTION];
+                
+                $retStr[] = $eiDescription;
+            }                                                
+        }
+        catch(PDOException $e)
+        {
+            $err = $e->getMessage();
+            echo "Failed to retrieve accomplishments: $err";
             die();
         }
         $dbh=null;

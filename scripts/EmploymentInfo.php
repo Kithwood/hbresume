@@ -5,7 +5,9 @@ class EmploymentInfo
     public $Summary = "";
     public $Employer = "";
     public $Range = "";    
-    
+    public $Accomplishments = null;
+    public $Id = -1;
+
     public function getTitle()
     {
         return $this->Title;
@@ -28,9 +30,12 @@ class EmploymentInfo
 
     public function getAccomplishments()
     {
-        $accomplishments = array("I did this one thing", "I did this other thing", "I accomplished tremendous things.  Just tremendous.");
+        $context = new ResumeDataContext();
+        $this->Accomplishments = $context->getAccomplishments($this->Id);
 
-        return $accomplishments;
+        //$accomplishments = array("I did this one thing", "I did this other thing", "I accomplished tremendous things.  Just tremendous.");
+
+        return $this->Accomplishments;
     }
 }
 ?>

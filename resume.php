@@ -108,7 +108,7 @@
 				<div id="divPicIntro" style="display:table;margin-top:-16px;margin-bottom:32px;">
 					<div style="display:table-row;">
 						<div style="display:table-cell;">
-							<img src="./images/IMG_3188.JPG" alt="Profile Image" width="85">
+							<img src="./images/IMG_3188.JPG" alt="Profile Image" width="85" style="border:1px solid #acacac;">
 						</div>
 						<div style="display:table-cell;vertical-align:top;color:#fff;padding-left:32px;">
 							<span class="intro"><?php echo $Resume->getFullName(); ?></span><br/>
